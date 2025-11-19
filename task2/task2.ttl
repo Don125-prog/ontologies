@@ -9,28 +9,37 @@
 <http://www.semanticweb.org/admin/ontologies/2025/9/untitled-ontology-25> rdf:type owl:Ontology .
 
 #################################################################
+#    Annotation properties
+#################################################################
+
+###  http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled
+<http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> rdf:type owl:AnnotationProperty .
+
+
+#################################################################
 #    Object Properties
 #################################################################
 
-###  http://www.semanticweb.org/admin/ontologies/2025/9/untitled-ontology-25#ИмеетРодителя
+###  http://www.semanticweb.org/admin/ontologies/2025/9/untitled-ontology-25/ИмеетРодителя
 :ИмеетРодителя rdf:type owl:ObjectProperty ;
                owl:inverseOf :ЯвляетсяРодителемДля ;
                rdf:type owl:FunctionalProperty ,
                         owl:IrreflexiveProperty .
 
 
-###  http://www.semanticweb.org/admin/ontologies/2025/9/untitled-ontology-25#ЯвляетсяПотомком
+###  http://www.semanticweb.org/admin/ontologies/2025/9/untitled-ontology-25/ЯвляетсяПотомком
 :ЯвляетсяПотомком rdf:type owl:ObjectProperty ;
                   owl:inverseOf :ЯвляетсяПредком ;
-                  rdf:type owl:TransitiveProperty .
+                  rdf:type owl:TransitiveProperty ,
+                           owl:IrreflexiveProperty .
 
 
-###  http://www.semanticweb.org/admin/ontologies/2025/9/untitled-ontology-25#ЯвляетсяПредком
+###  http://www.semanticweb.org/admin/ontologies/2025/9/untitled-ontology-25/ЯвляетсяПредком
 :ЯвляетсяПредком rdf:type owl:ObjectProperty ,
-                          owl:TransitiveProperty .
+                          owl:IrreflexiveProperty .
 
 
-###  http://www.semanticweb.org/admin/ontologies/2025/9/untitled-ontology-25#ЯвляетсяРодителемДля
+###  http://www.semanticweb.org/admin/ontologies/2025/9/untitled-ontology-25/ЯвляетсяРодителемДля
 :ЯвляетсяРодителемДля rdf:type owl:ObjectProperty .
 
 
@@ -38,7 +47,7 @@
 #    Classes
 #################################################################
 
-###  http://www.semanticweb.org/admin/ontologies/2025/9/untitled-ontology-25#Человек
+###  http://www.semanticweb.org/admin/ontologies/2025/9/untitled-ontology-25/Человек
 :Человек rdf:type owl:Class .
 
 
@@ -46,16 +55,84 @@
 #    Individuals
 #################################################################
 
-###  http://www.semanticweb.org/admin/ontologies/2025/9/untitled-ontology-25#Андрей
-:Андрей rdf:type owl:NamedIndividual ,
-                 :Человек ;
-        :ЯвляетсяПредком :Саша .
+###  http://www.semanticweb.org/admin/ontologies/2025/9/untitled-ontology-25/Андрей_Петров
+:Андрей_Петров rdf:type owl:NamedIndividual ,
+                        :Человек ;
+               :ИмеетРодителя :Леонид_Петров ;
+               :ЯвляетсяПотомком :Леонид_Петров ,
+                                 :Сергей_Петров .
 
 
-###  http://www.semanticweb.org/admin/ontologies/2025/9/untitled-ontology-25#Саша
-:Саша rdf:type owl:NamedIndividual ,
-               :Человек ;
-      :ИмеетРодителя :Андрей .
+###  http://www.semanticweb.org/admin/ontologies/2025/9/untitled-ontology-25/Вася_Иванов
+:Вася_Иванов rdf:type owl:NamedIndividual ,
+                      :Человек ;
+             :ИмеетРодителя :Игорь_Иванов ;
+             :ЯвляетсяПотомком :Игорь_Иванов ,
+                               :Петр_Иванов .
 
+
+###  http://www.semanticweb.org/admin/ontologies/2025/9/untitled-ontology-25/Игорь_Иванов
+:Игорь_Иванов rdf:type owl:NamedIndividual ,
+                       :Человек ;
+              :ИмеетРодителя :Петр_Иванов ;
+              :ЯвляетсяПотомком :Петр_Иванов ;
+              :ЯвляетсяПредком :Вася_Иванов ;
+              :ЯвляетсяРодителемДля :Вася_Иванов .
+
+
+###  http://www.semanticweb.org/admin/ontologies/2025/9/untitled-ontology-25/Леонид_Петров
+:Леонид_Петров rdf:type owl:NamedIndividual ,
+                        :Человек ;
+               :ИмеетРодителя :Сергей_Петров ;
+               :ЯвляетсяПотомком :Сергей_Петров ;
+               :ЯвляетсяПредком :Андрей_Петров ;
+               :ЯвляетсяРодителемДля :Андрей_Петров .
+
+
+###  http://www.semanticweb.org/admin/ontologies/2025/9/untitled-ontology-25/Петр_Иванов
+:Петр_Иванов rdf:type owl:NamedIndividual ,
+                      :Человек ;
+             :ЯвляетсяПредком :Вася_Иванов ,
+                              :Игорь_Иванов ;
+             :ЯвляетсяРодителемДля :Игорь_Иванов .
+
+
+###  http://www.semanticweb.org/admin/ontologies/2025/9/untitled-ontology-25/Сергей_Петров
+:Сергей_Петров rdf:type owl:NamedIndividual ,
+                        :Человек ;
+               :ЯвляетсяПредком :Андрей_Петров ,
+                                :Леонид_Петров ;
+               :ЯвляетсяРодителемДля :Леонид_Петров .
+
+
+#################################################################
+#    Rules
+#################################################################
+
+:x rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+:y rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "" ;
+   rdfs:label "S1" ;
+   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :ИмеетРодителя ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :x ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> :y
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :ЯвляетсяПредком ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :y ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> :x
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
 
 ###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi
