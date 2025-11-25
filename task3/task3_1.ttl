@@ -1,0 +1,180 @@
+@prefix : <http://www.semanticweb.org/admin/ontologies/2025/10/untitled-ontology-37/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.semanticweb.org/admin/ontologies/2025/10/untitled-ontology-37/> .
+
+<http://www.semanticweb.org/admin/ontologies/2025/10/untitled-ontology-37> rdf:type owl:Ontology .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.semanticweb.org/admin/ontologies/2025/10/untitled-ontology-37#Включает_в_себя
+:Включает_в_себя rdf:type owl:ObjectProperty ,
+                          owl:TransitiveProperty .
+
+
+###  http://www.semanticweb.org/admin/ontologies/2025/10/untitled-ontology-37#Имеет_подписку
+:Имеет_подписку rdf:type owl:ObjectProperty .
+
+
+###  http://www.semanticweb.org/admin/ontologies/2025/10/untitled-ontology-37#Обращается_к
+:Обращается_к rdf:type owl:ObjectProperty .
+
+
+###  http://www.semanticweb.org/admin/ontologies/2025/10/untitled-ontology-37#Оформлена_на
+:Оформлена_на rdf:type owl:ObjectProperty .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.semanticweb.org/admin/ontologies/2025/10/untitled-ontology-37#ВалидныйЗапрос
+:ВалидныйЗапрос rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/admin/ontologies/2025/10/untitled-ontology-37#Выпуск
+:Выпуск rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/admin/ontologies/2025/10/untitled-ontology-37#Журнал
+:Журнал rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/admin/ontologies/2025/10/untitled-ontology-37#Запрос
+:Запрос rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/admin/ontologies/2025/10/untitled-ontology-37#Подписка
+:Подписка rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/admin/ontologies/2025/10/untitled-ontology-37#Пользователь
+:Пользователь rdf:type owl:Class .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://www.semanticweb.org/admin/ontologies/2025/10/untitled-ontology-37#Выпуск_2025_10_Громкий_Парламент
+:Выпуск_2025_10_Громкий_Парламент rdf:type owl:NamedIndividual ,
+                                           :Выпуск .
+
+
+###  http://www.semanticweb.org/admin/ontologies/2025/10/untitled-ontology-37#Выпуск_2025_10_Почемучка
+:Выпуск_2025_10_Почемучка rdf:type owl:NamedIndividual ,
+                                   :Выпуск .
+
+
+###  http://www.semanticweb.org/admin/ontologies/2025/10/untitled-ontology-37#Выпуск_2025_11_Громкий_Парламент
+:Выпуск_2025_11_Громкий_Парламент rdf:type owl:NamedIndividual ,
+                                           :Выпуск .
+
+
+###  http://www.semanticweb.org/admin/ontologies/2025/10/untitled-ontology-37#Выпуск_2025_11_Людка_а_Людка
+:Выпуск_2025_11_Людка_а_Людка rdf:type owl:NamedIndividual ,
+                                       :Выпуск .
+
+
+###  http://www.semanticweb.org/admin/ontologies/2025/10/untitled-ontology-37#Выпуск_2025_11_Почемучка
+:Выпуск_2025_11_Почемучка rdf:type owl:NamedIndividual ,
+                                   :Выпуск .
+
+
+###  http://www.semanticweb.org/admin/ontologies/2025/10/untitled-ontology-37#Громкий_Парламент
+:Громкий_Парламент rdf:type owl:NamedIndividual ,
+                            :Журнал ;
+                   :Включает_в_себя :Выпуск_2025_10_Громкий_Парламент ,
+                                    :Выпуск_2025_11_Громкий_Парламент .
+
+
+###  http://www.semanticweb.org/admin/ontologies/2025/10/untitled-ontology-37#Запрос-1
+:Запрос-1 rdf:type owl:NamedIndividual ,
+                   :Запрос ;
+          :Обращается_к :Выпуск_2025_11_Почемучка ;
+          :Оформлена_на :Иван_Иванов .
+
+
+###  http://www.semanticweb.org/admin/ontologies/2025/10/untitled-ontology-37#Запрос-2
+:Запрос-2 rdf:type owl:NamedIndividual ,
+                   :Запрос ;
+          :Обращается_к :Выпуск_2025_10_Почемучка ;
+          :Оформлена_на :Иван_Иванов .
+
+
+###  http://www.semanticweb.org/admin/ontologies/2025/10/untitled-ontology-37#Запрос-3
+:Запрос-3 rdf:type owl:NamedIndividual ,
+                   :Запрос ;
+          :Обращается_к :Выпуск_2025_11_Людка_а_Людка ;
+          :Оформлена_на :Марина_Иванова .
+
+
+###  http://www.semanticweb.org/admin/ontologies/2025/10/untitled-ontology-37#Запрос-4
+:Запрос-4 rdf:type owl:NamedIndividual ,
+                   :Запрос ;
+          :Обращается_к :Выпуск_2025_11_Громкий_Парламент ;
+          :Оформлена_на :Инокетий_Котофеев .
+
+
+###  http://www.semanticweb.org/admin/ontologies/2025/10/untitled-ontology-37#Запрос-5
+:Запрос-5 rdf:type owl:NamedIndividual ,
+                   :Запрос ;
+          :Обращается_к :Выпуск_2025_10_Громкий_Парламент ;
+          :Оформлена_на :Инокетий_Котофеев .
+
+
+###  http://www.semanticweb.org/admin/ontologies/2025/10/untitled-ontology-37#Иван_Иванов
+:Иван_Иванов rdf:type owl:NamedIndividual ,
+                      :Пользователь ;
+             :Имеет_подписку :Наука_и_техника .
+
+
+###  http://www.semanticweb.org/admin/ontologies/2025/10/untitled-ontology-37#Инокетий_Котофеев
+:Инокетий_Котофеев rdf:type owl:NamedIndividual ,
+                            :Пользователь ;
+                   :Имеет_подписку :Общественно-политическая .
+
+
+###  http://www.semanticweb.org/admin/ontologies/2025/10/untitled-ontology-37#Людка_а_Людка
+:Людка_а_Людка rdf:type owl:NamedIndividual ,
+                        :Журнал ;
+               :Включает_в_себя :Выпуск_2025_11_Людка_а_Людка .
+
+
+###  http://www.semanticweb.org/admin/ontologies/2025/10/untitled-ontology-37#Марина_Иванова
+:Марина_Иванова rdf:type owl:NamedIndividual ,
+                         :Пользователь ;
+                :Имеет_подписку :Развлекательная .
+
+
+###  http://www.semanticweb.org/admin/ontologies/2025/10/untitled-ontology-37#Наука_и_техника
+:Наука_и_техника rdf:type owl:NamedIndividual ,
+                          :Подписка ;
+                 :Включает_в_себя :Почемучка .
+
+
+###  http://www.semanticweb.org/admin/ontologies/2025/10/untitled-ontology-37#Общественно-политическая
+:Общественно-политическая rdf:type owl:NamedIndividual ,
+                                   :Подписка ;
+                          :Включает_в_себя :Громкий_Парламент .
+
+
+###  http://www.semanticweb.org/admin/ontologies/2025/10/untitled-ontology-37#Почемучка
+:Почемучка rdf:type owl:NamedIndividual ,
+                    :Журнал ;
+           :Включает_в_себя :Выпуск_2025_10_Почемучка ,
+                            :Выпуск_2025_11_Почемучка .
+
+
+###  http://www.semanticweb.org/admin/ontologies/2025/10/untitled-ontology-37#Развлекательная
+:Развлекательная rdf:type owl:NamedIndividual ,
+                          :Подписка ;
+                 :Включает_в_себя :Людка_а_Людка .
+
+
+###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi
