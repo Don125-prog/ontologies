@@ -42,3 +42,4 @@
 ^ Включает_в_себя(?B, ?C)
 ^ Включает_в_себя(?C, ?D)
 ^ Обращается_к(?x, ?D) -> ВалидныйЗапрос(?x)
+![TEST](https://github.com/Don125-prog/ontologies/blob/main/task3/test.png)
