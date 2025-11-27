@@ -45,5 +45,5 @@
 
 # Тестирование
 
-![TEST](https://github.com/Don125-prog/ontologies/blob/main/task3/test2.png)
-![TEST](https://github.com/Don125-prog/ontologies/blob/main/task3/test.png)
+![TEST](https://github.com/Don125-prog/ontologies/blob/main/task4/ask.png)
+
