@@ -45,7 +45,6 @@ sudo chown -R 100 fuseki
 docker-compose up -d
 
 ```
-      или
 ```sh
 docker run -d --name jena-fuseki-owl2 -p 3030:3030 -v ./fuseki:/fuseki stain/jena-fuseki:4.8.0
 ```
