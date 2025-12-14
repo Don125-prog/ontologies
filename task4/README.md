@@ -72,7 +72,7 @@ pip install -r requirements.txt
     'FUSEKI_USER': 'admin',
     'FUSEKI_PASSWORD': 'pw',
     'FUSEKI_PORT': 3030,
-    'FUSEKI_DATASET': 'ds_family',
+    'FUSEKI_DATASET': 'task4',
 }
 ```
 5) Запустите uvicorn сервер, указав нужный порт
