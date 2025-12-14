@@ -69,6 +69,28 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "Execute template with param",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"template_name\": \"template_ask\",\n    \"id_request\": \"Запрос1\"\n    \n}"
+				},
+				"url": {
+					"raw": "http://{{HOST}}/query",
+					"protocol": "http",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"query"
+					]
+				}
+			},
+			"response": []
 		}
 	],
 	"event": [
