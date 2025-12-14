@@ -40,7 +40,7 @@ def query():
         if response.status_code == 200:
             return {"message": response.json()}
         else:
-            return {"message": f"Ошибка при выполнении запроса: {response.status_code}"}
+            return {"message": f"Ошибка при выполнении тестового запроса: {response.status_code}"}
 
 @app.post("/query")
 async def query(request: Request):
@@ -59,6 +59,12 @@ async def query(request: Request):
 
 
         if response.status_code == 200:
-            return {"message": response.json()}
+            if "boolean" in response.json():
+               if response.json()['boolean']:
+                    return {"message": "Запрос валидный"}
+               else:
+                    return {"message": "Запрос невалидный"}
+            else:
+                return {"message": response.json()}
         else:
             return {"message": f"Ошибка при выполнении запроса: {response.status_code}"}
