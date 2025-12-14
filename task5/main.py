@@ -1,4 +1,4 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, Request
 import requests
 from src.config import params
 
@@ -6,6 +6,7 @@ import jinja2
 
 
 app = FastAPI()
+environment = jinja2.Environment()
 
 @app.get("/")
 def read_root():
@@ -25,8 +26,11 @@ def get_dataset_list():
 
 @app.get("/query_test")
 def query():
-    with open("src/templates/template_test.rq", "r") as file:
-        query = file.read()
+    with open("src/templates/template_test.jinja2", "r") as file:
+        
+        template = environment.from_string(file.read())
+        query = template.render()
+
         response = requests.post(f"http://{params['FUSEKI_HOST']}:{params['FUSEKI_PORT']}/{params['FUSEKI_DATASET']}/query", 
         auth=(params['FUSEKI_USER'], params['FUSEKI_PASSWORD']), 
         data=query.encode("utf-8"),
@@ -38,15 +42,15 @@ def query():
         else:
             return {"message": f"Ошибка при выполнении запроса: {response.status_code}"}
 
-@app.get("/query")
-def query():
-    environment = jinja2.Environment()
-    limit_rows = 10 
+@app.post("/query")
+async def query(request: Request):
+    data = await request.json()
+    template_name = data.get("template_name", "template_test")
     
-    with open("src/templates/template_limit.jinja2", "r") as file:
+    with open(f"src/templates/{template_name}.jinja2", "r") as file:
 
         template = environment.from_string(file.read())
-        query = template.render(limit_rows=limit_rows)
+        query = template.render(data)
 
         response = requests.post(f"http://{params['FUSEKI_HOST']}:{params['FUSEKI_PORT']}/{params['FUSEKI_DATASET']}/query", 
         auth=(params['FUSEKI_USER'], params['FUSEKI_PASSWORD']), 
