@@ -43,7 +43,7 @@
 ^ Включает_в_себя(?C, ?D)
 ^ Обращается_к(?x, ?D) -> ВалидныйЗапрос(?x)
 
-# Установка uvicorn
+# Установка 
 1) Скопируйте репозиторий и зайдите в папку проекта 
 ```sh
 git clone https://github.com/Don125-prog/ontologies.git
@@ -85,7 +85,8 @@ uvicorn main:app --port 8000 --reload
 localhost:8000
 ```
 # Тестирование
-Перенесите Postman коллекцию Task5.postman_collection.json  и выполните запросы:
+1) Перед тестирование должна быть загружена коллекция Postman коллекцию Task4.postman_collection.json  и создана тестовая база task4
+2) Перенесите Postman коллекцию Task5.postman_collection.json  и выполните запросы:
 -	Запрос Get Dataset List возрашает список датасетов 
 -	Запрос Execute test template возрашает список всех валидных Запросов в датасете
 -	Запрос Execute template with limit возрашает список всех триплетов, где количество задается limit_rows в теле запроса
