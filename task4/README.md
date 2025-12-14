@@ -57,6 +57,8 @@ cd task4
 2) Создайте и активируйте виртуальное окружение
 ```sh
 python3 -m venv venv
+```
+```sh
 source venv/bin/activate
 ```
 3) Установите необходимые пакеты
