@@ -43,7 +43,50 @@
 ^ Включает_в_себя(?C, ?D)
 ^ Обращается_к(?x, ?D) -> ВалидныйЗапрос(?x)
 
+# Установка
+1) Скопируйте репозиторий и зайдите в папку проекта 
+```sh
+git clone https://github.com/Don125-prog/ontologies.git
+cd task4
+```
+2) Создайте и активируйте виртуальное окружение
+```sh
+python3 -m venv venv
+source venv/bin/activate
+```
+3) Установите необходимые пакеты
+```sh
+pip install -r requirements.txt 
+```
+4) Измените параметры подключения в файле scr/config.py
+```sh
+   params = {
+    'FUSEKI_HOST': 'localhost',
+    'FUSEKI_USER': 'admin',
+    'FUSEKI_PASSWORD': 'pw',
+    'FUSEKI_PORT': 3030,
+    'FUSEKI_DATASET': 'ds_family',
+}
+```
+5) Запустите uvicorn сервер, указав нужный порт
+```sh
+uvicorn main:app --port 8000 --reload
+```
+6) Откройте Postman и загрузите коллекцию Task5.postman_collection.json
+7) В переменных коллекции нужно указать HOST, где развернут uvicorn сервер. Например:
+```sh
+localhost:8000
+```
 # Тестирование
+Запрос Get Dataset List возрашает список датасетов 
+Запрос Execute test template возрашает список всех валидных Запросов в датасете
+Запрос Execute template with limit возрашает список всех триплетов, где количество задается limit_rows в теле запроса
+Запрос Execute template with params возращает сообщение "Запрос валидный", если Запрос, указанный в поле id_request, является валидным; иначе возращает сообщение "Запрос невалидный"
+
+
+
+
+ 
 
 ![TEST](https://github.com/Don125-prog/ontologies/blob/main/task4/ask.png)
 
