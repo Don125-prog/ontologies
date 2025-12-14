@@ -79,14 +79,28 @@ pip install -r requirements.txt
 ```sh
 uvicorn main:app --port 8000 --reload
 ```
-6) Откройте Postman и загрузите коллекцию Task5.postman_collection.json
-7) В переменных коллекции нужно указать HOST, где развернут uvicorn сервер. Например:
+6) Откройте Postman и загрузите коллекцию Task4.postman_collection.json
+7) В переменных коллекции нужно указать HOST, LOGIN, PASSWORD, DATASET - параметры подключения к серверу фусеки и имя датасета
+   
 ```sh
-localhost:8000
+HOST: localhost:3030
+LOGIN: admin
+PASSWORD: pw
+DATASET: task4
 ```
-# Тестирование
-1) Перед тестирование должна быть загружена коллекция Postman коллекцию Task4.postman_collection.json  и создана тестовая база task4
-2) Перенесите Postman коллекцию Task5.postman_collection.json  и выполните запросы:
+8) Откройте Postman и загрузите коллекцию Task5.postman_collection.json
+9) В переменных коллекции нужно указать HOST, где развернут uvicorn сервер. Например:
+```sh
+HOST: localhost:8000
+```
+# Тестирование фусеки сервера
+ Перед тестирование должна быть загружена коллекция Postman коллекцию Task4.postman_collection.json  и создана тестовая база task4, в которую загружены task3_1, Task3_2. Для этого можно использовать запросы из данной коллекции:
+ -	Запрос Create Dataset создает датасет 
+ -	Запрос Upload Dataset загружает данные в базу 
+ -	Запрос Dataset Query возращает результат запроса, указанного в файле в теле запроса
+   
+# Тестирование unicorn сервера
+ Перенесите Postman коллекцию Task5.postman_collection.json  и выполните запросы:
 -	Запрос Get Dataset List возрашает список датасетов 
 -	Запрос Execute test template возрашает список всех валидных Запросов в датасете
 -	Запрос Execute template with limit возрашает список всех триплетов, где количество задается limit_rows в теле запроса
