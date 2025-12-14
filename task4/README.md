@@ -85,7 +85,7 @@ uvicorn main:app --port 8000 --reload
 localhost:8000
 ```
 # Тестирование
-Перенесите Poastman коллекцию task5.postman_collection.json  и выполните запросы:
+Перенесите Postman коллекцию Task5.postman_collection.json  и выполните запросы:
 -	Запрос Get Dataset List возрашает список датасетов 
 -	Запрос Execute test template возрашает список всех валидных Запросов в датасете
 -	Запрос Execute template with limit возрашает список всех триплетов, где количество задается limit_rows в теле запроса
