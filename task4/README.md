@@ -47,6 +47,11 @@
 1) Скопируйте репозиторий и зайдите в папку проекта 
 ```sh
 git clone https://github.com/Don125-prog/ontologies.git
+```
+```sh
+cd ontologies
+```
+```sh
 cd task4
 ```
 2) Создайте и активируйте виртуальное окружение
