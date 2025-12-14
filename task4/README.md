@@ -109,7 +109,5 @@ HOST: localhost:8000
 
 
 
- 
 
-![TEST](https://github.com/Don125-prog/ontologies/blob/main/task4/ask.png)
 
