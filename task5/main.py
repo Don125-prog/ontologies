@@ -15,7 +15,7 @@ def hello_name(name: str):
 
 @app.get("/dataset_list")
 def get_dataset_list():
-    response = requests.get(f"http://{params['FUSEKI_HOST']}:{params['FUSEKI_PORT']}/$/datasets1", auth=(params['FUSEKI_USER'], params['FUSEKI_PASSWORD']))
+    response = requests.get(f"http://{params['FUSEKI_HOST']}:{params['FUSEKI_PORT']}/$/datasets", auth=(params['FUSEKI_USER'], params['FUSEKI_PASSWORD']))
     if response.status_code == 200:
         return {"message": response.json()}
     else:
