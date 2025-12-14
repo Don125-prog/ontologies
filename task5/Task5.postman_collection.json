@@ -1,0 +1,104 @@
+{
+	"info": {
+		"_postman_id": "1083a297-18f9-4d7b-96e7-260cdce610a6",
+		"name": "Task5",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "50359466",
+		"_collection_link": "https://don125-prog-8135282.postman.co/workspace/Helen's-Workspace~7b08f853-0ac3-431f-8f06-87b049f8a42e/collection/50359466-1083a297-18f9-4d7b-96e7-260cdce610a6?action=share&source=collection_link&creator=50359466"
+	},
+	"item": [
+		{
+			"name": "Get Dataset List",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://{{HOST}}/dataset_list",
+					"protocol": "http",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"dataset_list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Execute test template",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://{{HOST}}/query_test",
+					"protocol": "http",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"query_test"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Execute template with limit",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"template_name\": \"template_limit\",\n    \"limit_rows\": 5\n    \n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{HOST}}/query",
+					"protocol": "http",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"query"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "HOST",
+			"value": ""
+		}
+	]
+}
